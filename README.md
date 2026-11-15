@@ -58,22 +58,46 @@ app/src/main/java/com/ryuseilabs/pleostest/
 
 도착 판정(`ArrivalJudge`)은 안드로이드 의존성이 없는 순수 Kotlin이라 JVM 단위 테스트로 검증합니다.
 
-## 빌드와 실행
+## 실행 방법
 
-SDK는 Pleos Playground 저장소(`https://nexus-playground.pleos.ai/repository/maven-releases/`)에서 받으며, `settings.gradle.kts`에 선언되어 있습니다.
+### 미리 빌드한 APK 설치
+
+release APK는 `apk/이원준_로드스탬프_release.apk`에 있습니다. Pleos Connect 에뮬레이터를 켠 뒤 설치합니다.
 
 ```bash
-./gradlew testDebugUnitTest assembleDebug
-adb install -r app/build/outputs/apk/debug/app-debug.apk
+adb install -r "apk/이원준_로드스탬프_release.apk"
+adb shell am start -n com.ryuseilabs.pleostest/.HomeActivity
 ```
 
-미리 빌드한 APK는 `apk/roadstamp-debug.apk`에 있습니다. 대상은 Pleos Connect 에뮬레이터(minSdk 34)입니다.
+APK는 release 빌드이며, 설치용으로 Android 디버그 키로 서명했습니다. 앱 이름은 로드스탬프, 패키지명은 `com.ryuseilabs.pleostest`입니다.
 
-앱에서 코스를 출발하면 `pleos.car.permission.FUSED_LOCATION` 권한을 요청합니다. 에뮬레이터에서 직접 허용하려면 다음 명령을 쓸 수 있습니다.
+### 소스에서 빌드
+
+```bash
+./gradlew testDebugUnitTest assembleDebug     # 단위 테스트 13개 + debug APK
+./gradlew assembleRelease                      # release APK (서명 전)
+```
+
+Pleos SDK는 Pleos Playground 저장소(`https://nexus-playground.pleos.ai/repository/maven-releases/`)에서 받으며 `settings.gradle.kts`에 선언되어 있습니다. JDK 17 이상, Android SDK 37이 필요하고, 앱의 minSdk는 34입니다.
+
+## 테스트 환경과 필요한 설정
+
+| 항목 | 내용 |
+| --- | --- |
+| 에뮬레이터 | Pleos Connect Emulator 2.1.0 (AVD `Pleos_Connect_v2.1.0`, 시스템 이미지 `pleos_car_emulator`, x86_64) |
+| Android | API 34 |
+| 화면 규격 | 2560 x 1440, 160dpi (가로 와이드, 좌측 계기판 영역 + 우측 앱 영역 약 1707 x 1350) |
+| 메모리 | 8GB |
+| 필요한 SDK | NaviHelper 3.0.5, FusedLocation 1.1.3 (Vehicle 2.3.2는 의존성만 포함) |
+| 필요한 권한 | `pleos.car.permission.NAVI_ROUTE`, `NAVI_ROUTE_SEARCH`, `FUSED_LOCATION` 등 (매니페스트 선언, 위치 권한은 코스 출발 시 앱이 요청) |
+
+에뮬레이터에서 직접 위치 권한을 허용하려면 다음 명령을 쓸 수 있습니다.
 
 ```bash
 adb shell pm grant --user 10 com.ryuseilabs.pleostest pleos.car.permission.FUSED_LOCATION
 ```
+
+앱은 가로 와이드(너비 1000dp 이상) 화면을 기준으로 설계했고, 좁은 화면 레이아웃은 코드로 있으나 에뮬레이터에서 확인하지 않았습니다.
 
 ## 에뮬레이터에서 도착 판정 시험
 
