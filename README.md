@@ -21,9 +21,19 @@ Pleos Connect 에뮬레이터에서 캡처한 화면입니다.
 
 ![로드북 목록](screenshots/01-home.png)
 
-펼친 책: 왼쪽에 코스 지도, 오른쪽에 체크포인트별 도장 목록이 있습니다.
+펼친 책(시작 전): 왼쪽에 코스 지도, 오른쪽에 체크포인트별 도장 목록이 있습니다.
 
 ![펼친 책](screenshots/02-book.png)
+
+드라이브 화면: 1구간 도장이 찍힌 뒤 2구간 도착을 기다리는 상태입니다. 이 도장은 FusedLocation 좌표로 판정되었습니다.
+
+![드라이브 화면](screenshots/03-drive.png)
+
+완주한 책과 완주 팝업: 아래 두 화면은 앱의 데모 리플레이(시연용)로 구간을 재생해 얻은 화면입니다.
+
+![완주한 책](screenshots/06-book-complete.png)
+
+![완주 팝업](screenshots/04-complete-popup.png)
 
 ## 사용한 Pleos SDK
 
