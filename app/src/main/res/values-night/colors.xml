@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pleos_bg">#FF131417</color>
+    <color name="pleos_surface">#FF1D1E21</color>
+    <color name="pleos_text">#FFF4F5F7</color>
+    <color name="pleos_blue">#FF0082FF</color>
+</resources>

@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Pleos Connect 톤: 시스템 라이트/다크를 따르는 중립 테마, 액션바 없음 -->
+    <style name="Theme.PleosTest" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/pleos_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/pleos_surface</item>
+        <item name="colorOnSurface">@color/pleos_text</item>
+        <item name="android:statusBarColor">@color/pleos_bg</item>
+        <item name="android:navigationBarColor">@color/pleos_bg</item>
+        <item name="android:windowBackground">@color/pleos_bg</item>
+    </style>
+</resources>

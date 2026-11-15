@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 48 x 48 그리드, Outlined 스타일(선 4). 색은 코드에서 tint 로 지정 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp" android:height="48dp"
+    android:viewportWidth="48" android:viewportHeight="48">
+    <path android:pathData="M12,22 L36,22 A3,3 0 0 1 39,25 L39,38 A3,3 0 0 1 36,41 L12,41 A3,3 0 0 1 9,38 L9,25 A3,3 0 0 1 12,22 Z" android:strokeColor="#FFFFFFFF" android:strokeWidth="4.5" android:strokeLineCap="round" android:strokeLineJoin="round" />
+    <path android:pathData="M16,22 L16,16 A8,8 0 0 1 32,16 L32,22" android:strokeColor="#FFFFFFFF" android:strokeWidth="4.5" android:strokeLineCap="round" android:strokeLineJoin="round" />
+</vector>
