@@ -20,9 +20,9 @@ android {
 
     buildTypes {
         release {
+            // 코드 축소(R8)는 끈다: 켜면 Kotlin 표준 라이브러리 클래스가 재배치되어 실행 시 IllegalAccessError가 난다.
             optimization {
-                enable = true
-                packageScope = setOf("androidx.**", "kotlin.**", "kotlinx.**")
+                enable = false
             }
         }
     }

@@ -69,7 +69,7 @@ adb install -r "apk/이원준_로드스탬프_release.apk"
 adb shell am start -n com.ryuseilabs.pleostest/.HomeActivity
 ```
 
-APK는 release 빌드이며, 설치용으로 Android 디버그 키로 서명했습니다. 앱 이름은 로드스탬프, 패키지명은 `com.ryuseilabs.pleostest`입니다.
+APK는 release 빌드이며(코드 축소 없음), 설치용으로 Android 디버그 키로 서명했습니다. Pleos Connect 에뮬레이터에서 설치·실행하고 FusedLocation 도착 판정으로 도장이 찍히는 것까지 확인했습니다. 앱 이름은 로드스탬프, 패키지명은 `com.ryuseilabs.pleostest`입니다.
 
 ### 소스에서 빌드
 
